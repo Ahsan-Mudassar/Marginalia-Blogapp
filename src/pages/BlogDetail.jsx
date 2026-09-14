@@ -26,8 +26,7 @@ const BlogDetail = () => {
             setLoadError("");
             try {
                 const { data } = await getBlogById(id, { signal: controller.signal });
-                console.log("Blog detail data:",data)
-                // console.log()
+                
                 setBlog(data.data);
             } catch (err) {
                 if (err.name === "CanceledError" || err.code === "ERR_CANCELED") return;

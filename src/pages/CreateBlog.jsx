@@ -87,7 +87,7 @@ const CreateBlog = () => {
                 },
             });
 
-            navigate(`/blogs/${data.blog._id}`, { replace: true });
+            navigate(`/blog/${data.data.blog._id}`, { replace: true });
         } catch (err) {
             if (!err.response) {
                 setServerError("Network error — please check your internet connection.");
