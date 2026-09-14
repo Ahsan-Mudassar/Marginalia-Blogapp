@@ -64,7 +64,7 @@ api.interceptors.response.use(
         isRefreshing = true;
         try {
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/api/auth/refresh-token`,
+                `${import.meta.env.VITE_API_URL}/auth/refresh-token`,
                 {},
                 { withCredentials: true }
             );
