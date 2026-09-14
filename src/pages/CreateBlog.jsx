@@ -86,8 +86,7 @@ const CreateBlog = () => {
                     if (evt.total) setUploadProgress(Math.round((evt.loaded * 100) / evt.total));
                 },
             });
-
-            navigate(`/blog/${data.data.blog._id}`, { replace: true });
+            navigate(`/blogs/${data.data._id}`, { replace: true });
         } catch (err) {
             if (!err.response) {
                 setServerError("Network error — please check your internet connection.");
