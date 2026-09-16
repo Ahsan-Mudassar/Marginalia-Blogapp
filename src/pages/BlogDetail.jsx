@@ -41,7 +41,7 @@ const BlogDetail = () => {
         return () => controller.abort();
     }, [id]);
 
-    const isOwner = user && blog?.author._id === user?._id;
+    const isOwner = user && blog?.author === user?.username;
 
     const handleDeleteConfirm = async () => {
         if (isDeleting) return;
@@ -97,7 +97,7 @@ const BlogDetail = () => {
                     </div>
                     <h1 className="max-w-3xl text-2xl font-black leading-tight tracking-tight text-ink sm:text-3xl">{blog.title}</h1>
                     <p className="mt-5 text-sm font-medium text-muted">
-                        By <span className="text-ink">{blog?.author?.username || "Unknown author"}</span>
+                        By <span className="text-ink">{blog?.author || "Unknown author"}</span>
                     </p>
 
                     {isOwner && (

@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
 
 const BlogCard = ({ blog }) => {
   if (!blog) return null;
-  const { _id, title, description, image, createdAt } = blog;
-  const { user } = useAuth();
+  const { _id, title, description, image, createdAt,author } = blog;
 
   return (
     <Link to={`/blogs/${_id}`} className="group block h-full rounded-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-subtle">
@@ -35,7 +33,7 @@ const BlogCard = ({ blog }) => {
           <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{description}</p>
           <div className="mt-auto flex items-center justify-between gap-2 border-t border-border pt-4">
             <span className="max-w-[55%] truncate text-xs font-bold text-brand">
-              {user?.username || "Anonymous author"}
+              {author || "Anonymous author"}
             </span>
             <span className="text-xs font-medium text-muted">
               {new Date(createdAt).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
